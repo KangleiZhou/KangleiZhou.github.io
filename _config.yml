@@ -218,7 +218,7 @@ font:
 social:
   WeChat: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
   GitHub: https://zhoukanglei.github.io/
-  Google Scholar: https://scholar.google.com/citations?user=yG1FaioAAAAJ&hl=en
+  Scholar: https://scholar.google.com/citations?user=yG1FaioAAAAJ&hl=en
 
 
 # Social Links Icons
@@ -231,7 +231,7 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Google Scholar: google
+  Scholar: google
   WeChat: weixin
 
 
