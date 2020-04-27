@@ -385,7 +385,7 @@ baidu_analytics: d3529b5ce3bbcc7ac85ee03d671af22e
 # Disqus
 disqus:
   enable: false
-  shortname: ityard
+  shortname: Kanglei Zhou
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -443,8 +443,8 @@ gitalk:
   clientID: 3fab0f8211e30a458400
   clientSecret: 2e71d1e7d4707d44650df7429a1be91f0df160f4
   repo: blog-comments
-  owner: ityard
-  admin: ityard
+  owner: Kanglei Zhou
+  admin: Kanglei Zhou
 
 # Support for valine comments system.
 #valine:
