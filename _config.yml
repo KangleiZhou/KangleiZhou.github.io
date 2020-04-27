@@ -328,7 +328,7 @@ post_wordcount:
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: /assets/images/wechat-qcode.jpg
+  qcode: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
   description: 扫一扫关注，查看更多精彩内容。
 
 # Declare license on posts
