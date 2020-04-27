@@ -1,8 +1,8 @@
 <div id="posts" class="posts-expand">
-  {% if page.type == "tags" %}
-    <div class="tag-cloud atl alti">
 {% include _partials/page-header.html %}
   {% comment %} tagcloud page support {% endcomment %}
+  {% if page.type == "tags" %}
+    <div class="tag-cloud">
       <div class="tag-cloud-title">
           {% if site.tags.size == 0 %}
             {{ __.counter.tag_cloud.zero }}
@@ -23,11 +23,8 @@
         {{ tagcloud }}
       </div>
     </div>
-
   {% elsif page.type == 'categories' %}
-    <div class="category-all-page atl alti">
-{% include _partials/page-header.html %}
-  {% comment %} tagcloud page support {% endcomment %}
+    <div class="category-all-page">
       <div class="category-all-title">
           {% if site.categories.size == 0 %}
             {{ __.counter.categories.zero }}
@@ -43,8 +40,6 @@
       </div>
     </div>
   {% else %}
-  <div class="atl alti">
     {{ content }}
-  </div>
   {% endif %}
 </div>
