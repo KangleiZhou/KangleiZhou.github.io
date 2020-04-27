@@ -2,7 +2,7 @@
 layout: post
 category: Python
 title: Python爬虫：CNKI论文爬虫
-tagline: by KangleiZhou
+tagline: by Kanglei Zhou
 tags: 
   - Python
 ---
