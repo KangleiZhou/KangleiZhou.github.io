@@ -10,18 +10,18 @@
 
 $whitesmoke   : #f5f5f5;
 $gainsboro    : #eee;
-$gray-lighter : #ddd;
+$gray-lighter : #fff;
 $grey-light   : #ccc;
 $grey         : #bbb;
 $grey-dark    : #999;
 $grey-dim     : #666;
-$black-light  : #555;
-$black-dim    : #333;
-$black-deep   : #222;
+$black-light  : #666;
+$black-dim    : #666;
+$black-deep   : #222222;
 $red          : #ff2a2a;
 $blue-bright  : #87daff;
 $blue         : #0684bd;
-$blue-deep    : #262a30;
+$blue-deep    : #555555;
 $orange       : #fc6423;
 
 
@@ -189,10 +189,10 @@ $pagination-active-border       : $grey-light;
 // Layout sizes
 // --------------------------------------------------
 
-$main-desktop                   : 960px;
+$main-desktop                   : 1060px;
 $main-desktop-large             : 1200px;
 
-$content-desktop                : 700px;
+$content-desktop                : 800px;
 $content-desktop-large          : 900px;
 $content-desktop-padding        : 40px;
 
@@ -271,11 +271,11 @@ $sidebar-nav-color                    : $black-light;
 $sidebar-nav-hover-color              : $whitesmoke;
 $sidebar-highlight                    : $blue-bright;
 
-$site-author-image-padding            : 2px;
+$site-author-image-padding            : 0px;
 $site-author-image-width              : 96px;
 $site-author-image-height             : auto;
 $site-author-image-border-width       : 2px;
-$site-author-image-border-color       : $black-dim;
+$site-author-image-border-color       : #fff;
 
 $site-author-name-margin              : 5px 0 0;
 $site-author-name-color               : $whitesmoke;

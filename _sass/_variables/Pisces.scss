@@ -24,8 +24,8 @@ $sidebar-offset-float             : if(type-of(jekyll-config('sidebar.offset_flo
 $sidebar-nav-hover-color          : $orange;
 $sidebar-highlight                : $orange;
 
-$site-author-image-width          : 120px;
-$site-author-image-border-width   : 1px;
+$site-author-image-width          : 100%;
+$site-author-image-border-width   : 0px;
 $site-author-image-border-color   : $gainsboro;
 
 $site-author-name-margin          : 0;

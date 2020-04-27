@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Kanglei Zhou
-subtitle: Ende gut, alles gute.
-description:
-author: Kanglei Zhou
+title: 程序员野客
+subtitle: Every day is new.
+description: 
+author: 
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -76,10 +76,10 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/favicon.ico
+favicon: /assets/images/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Kanglei Zhou"
+keywords: "Jekyll, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -87,7 +87,7 @@ keywords: "Kanglei Zhou"
 rss:
 
 # Specify the date when the site was setup
-since: 2020
+since: 2019
 
 # icon between year and author @Footer
 authoricon: heart
@@ -118,12 +118,12 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  #about: /about/
+  categories: /categories/
   archives: /archives/
-  tags: /tags/
-  #sitemap: /sitemap.xml
-  #commonweal: /404.html
+#  tags: /tags/
+  about: /about/
+#  sitemap: /sitemap.xml
+#  commonweal: /404.html
 
 
 # Enable/Disable menu icons.
@@ -151,9 +151,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -213,10 +213,13 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
+#social:
+  #LinkLabel: Link
 social:
-  WeChat: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
-  GitHub: https://github.com/ZhouKanglei
-  Google: https://scholar.google.com/citations?user=yG1FaioAAAAJ&hl=en
+  WeChat: /assets/images/wechat-qcode.jpg
+  GitHub: https://github.com/ityard
+  Gitee: https://Gitee.com/ityard
+  博客园: https://www.cnblogs.com/ityard
 
 
 # Social Links Icons
@@ -228,16 +231,16 @@ social_icons:
   enable: true
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
-
   GitHub: github
   Twitter: twitter
   Weibo: weibo
   WeChat: weixin
 
+
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
 #avatar:
-
+avatar: /assets/images/head.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -267,8 +270,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
-  #display: always
+  #display: hide
+  display: always
   #display: hide
   #display: remove
 
@@ -280,7 +283,7 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button
-  scrollpercent: false
+  scrollpercent: true
 
 
 # Blog rolls
@@ -288,7 +291,7 @@ sidebar:
 #links_layout: block
 #links_layout: inline
 #links:
-  #Title: http://example.com/
+#  城南书客: https://www.cnblogs.com/huangxy
 
 
 # ---------------------------------------------------------------
@@ -296,13 +299,13 @@ sidebar:
 # ---------------------------------------------------------------
 
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
+scroll_to_more: false
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: true
+excerpt_description: false
 
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
@@ -322,13 +325,13 @@ post_wordcount:
   item_text: true
   wordcount: false
   min2read: false
-  separated_meta: true
+  separated_meta: false
 
 # Wechat Subscriber
-#wechat_subscriber:
-  #enabled: true
-  #qcode: /path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg
-  #description: ex. subscribe to my blog by scanning my public wechat account
+wechat_subscriber:
+  enabled: true
+  qcode: /assets/images/wechat-qcode.jpg
+  description: 扫一扫关注，查看更多精彩内容。
 
 # Declare license on posts
 post_copyright:
@@ -376,7 +379,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: d3529b5ce3bbcc7ac85ee03d671af22e
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -384,7 +387,7 @@ han: false
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: ityard
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -434,23 +437,30 @@ changyan:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-#livere_uid: your uid
+#livere_uid: MTAyMC80NjA5MS8yMjYwMg==
 
 # Support for gitalk comments system.
 gitalk:
-  enable: false
-  clientID: # 54730ddf7b9420460c03
-  clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
-  repo: # colingpt.github.io
-  owner: # colingpt
-  admin: # colingpt
+  enable: true
+  clientID: 3fab0f8211e30a458400
+  clientSecret: 2e71d1e7d4707d44650df7429a1be91f0df160f4
+  repo: blog-comments
+  owner: ityard
+  admin: ityard
+
+# Support for valine comments system.
+#valine:
+#  enable: true
+#  appid: XmTAVgQGoWRIyCqTxnmRPbo3-gzGzoHsz
+#  appkey: t9ELuVgal7nFLKrA5Uf8bOUo
+#  placeholder: "评论"
 
 # Baidu Share
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-#baidushare:
-##  type: button
+baidushare:
+  type: button
 
 # Share
 #jiathis:
@@ -589,7 +599,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -608,7 +618,7 @@ exturl: false
 #! ---------------------------------------------------------------
 
 # Motion
-use_motion: true
+use_motion: false
 
 # Fancybox
 fancybox: true

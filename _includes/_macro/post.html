@@ -9,7 +9,7 @@
   {% if post.sticky > 0 %}
     {% assign post_class = post_class | append: ' ' | append: 'post-sticky' %}
   {% endif %}
-
+ <div class="atl">
   <article class="{{ post_class }}" itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
 
@@ -429,3 +429,4 @@
       {% endif %}
     </footer>
   </article>
+ </div>
