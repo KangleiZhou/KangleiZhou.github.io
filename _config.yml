@@ -4,17 +4,17 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Kanglei Zhou
-subtitle: Ende gut, alles gut.
-description:
-author: Kanglei Zhou
+title: 观星者的研究院
+subtitle: 
+description: Either write something worth reading or do something worth writing. 
+author: Colin
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url: https://kangleizhou.github.io
+url: https://colingpt.github.io
 baseurl:
 permalink: /:title/
 
@@ -119,11 +119,11 @@ index_with_subtitle: false
 menu:
   home: /
   archives: /archives/
-  categories: /categories/
-  tags: /tags/
+  #categories: /categories/
+  #tags: /tags/
   about: /about/
-  sitemap: /sitemap.xml
-  commonweal: /404.html
+  #sitemap: /sitemap.xml
+  #commonweal: /404.html
 
 
 # Enable/Disable menu icons.
