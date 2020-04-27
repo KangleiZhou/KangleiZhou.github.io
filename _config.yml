@@ -4,12 +4,12 @@
 # ---------------------------------------------------------------
 
 # Site
-title: 程序员野客
-subtitle: Every day is new.
-description: 
-author: 
+title: NexT
+subtitle:
+description:
+author: John Doe
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
-language: zh-Hans
+language: en
 date_format: '%Y-%m-%d'
 
 # URL
@@ -76,7 +76,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/images/favicon.ico
+favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT"
@@ -87,7 +87,7 @@ keywords: "Jekyll, NexT"
 rss:
 
 # Specify the date when the site was setup
-since: 2019
+#since: 2015
 
 # icon between year and author @Footer
 authoricon: heart
@@ -118,12 +118,12 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  categories: /categories/
+  #categories: /categories/
+  #about: /about/
   archives: /archives/
-#  tags: /tags/
-  about: /about/
-#  sitemap: /sitemap.xml
-#  commonweal: /404.html
+  tags: /tags/
+  #sitemap: /sitemap.xml
+  #commonweal: /404.html
 
 
 # Enable/Disable menu icons.
@@ -151,9 +151,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+scheme: Muse
 #scheme: Mist
-scheme: Pisces
+#scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -215,11 +215,6 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 #social:
   #LinkLabel: Link
-social:
-  WeChat: /assets/images/wechat-qcode.jpg
-  GitHub: https://github.com/ityard
-  Gitee: https://Gitee.com/ityard
-  博客园: https://www.cnblogs.com/ityard
 
 
 # Social Links Icons
@@ -234,13 +229,12 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
-  WeChat: weixin
 
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
 #avatar:
-avatar: /assets/images/head.jpg
+
 
 # Table Of Contents in the Sidebar
 toc:
@@ -270,8 +264,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  #display: hide
-  display: always
+  display: post
+  #display: always
   #display: hide
   #display: remove
 
@@ -283,7 +277,7 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button
-  scrollpercent: true
+  scrollpercent: false
 
 
 # Blog rolls
@@ -291,7 +285,7 @@ sidebar:
 #links_layout: block
 #links_layout: inline
 #links:
-#  城南书客: https://www.cnblogs.com/huangxy
+  #Title: http://example.com/
 
 
 # ---------------------------------------------------------------
@@ -299,13 +293,13 @@ sidebar:
 # ---------------------------------------------------------------
 
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: false
+scroll_to_more: true
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: true
+save_scroll: false
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: false
+excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
@@ -325,13 +319,13 @@ post_wordcount:
   item_text: true
   wordcount: false
   min2read: false
-  separated_meta: false
+  separated_meta: true
 
 # Wechat Subscriber
-wechat_subscriber:
-  enabled: true
-  qcode: /assets/images/wechat-qcode.jpg
-  description: 扫一扫关注，查看更多精彩内容。
+#wechat_subscriber:
+  #enabled: true
+  #qcode: /path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg
+  #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Declare license on posts
 post_copyright:
@@ -379,7 +373,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: d3529b5ce3bbcc7ac85ee03d671af22e
+#baidu_analytics:
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -387,7 +381,7 @@ baidu_analytics: d3529b5ce3bbcc7ac85ee03d671af22e
 # Disqus
 disqus:
   enable: false
-  shortname: ityard
+  shortname:
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -437,30 +431,23 @@ changyan:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-#livere_uid: MTAyMC80NjA5MS8yMjYwMg==
+#livere_uid: your uid
 
 # Support for gitalk comments system.
 gitalk:
-  enable: true
-  clientID: 3fab0f8211e30a458400
-  clientSecret: 2e71d1e7d4707d44650df7429a1be91f0df160f4
-  repo: blog-comments
-  owner: ityard
-  admin: ityard
-
-# Support for valine comments system.
-#valine:
-#  enable: true
-#  appid: XmTAVgQGoWRIyCqTxnmRPbo3-gzGzoHsz
-#  appkey: t9ELuVgal7nFLKrA5Uf8bOUo
-#  placeholder: "评论"
+  enable: false
+  clientID: # 54730ddf7b9420460c03
+  clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
+  repo: # colingpt.github.io
+  owner: # colingpt
+  admin: # colingpt
 
 # Baidu Share
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-baidushare:
-  type: button
+#baidushare:
+##  type: button
 
 # Share
 #jiathis:
@@ -599,7 +586,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: true
+  enable: false
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -618,7 +605,7 @@ exturl: false
 #! ---------------------------------------------------------------
 
 # Motion
-use_motion: false
+use_motion: true
 
 # Fancybox
 fancybox: true
