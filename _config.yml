@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: 程序员野客
-subtitle: Every day is new.
+title: Kanglei Zhou
+subtitle: Ende gut, alles gut.
 description: 
-author: 
+author: Kanglei Zhou
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -216,10 +216,9 @@ font:
 #social:
   #LinkLabel: Link
 social:
-  WeChat: /assets/images/wechat-qcode.jpg
-  GitHub: https://github.com/ityard
-  Gitee: https://Gitee.com/ityard
-  博客园: https://www.cnblogs.com/ityard
+  WeChat: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
+  GitHub: https://zhoukanglei.github.io/
+  Google Scholar: https://scholar.google.com/citations?user=yG1FaioAAAAJ&hl=en
 
 
 # Social Links Icons
@@ -232,8 +231,7 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  Google Scholar: google
   WeChat: weixin
 
 
