@@ -1,14 +1,12 @@
 ---
 layout: post
 category: Clustering
-title: 一个聚类分析实例
+title: 聚类实战：一个聚类实例及解答
 tagline: by Kanglei Zhou
 tags: 
   - python
 published: true
 ---
-
-## 聚类实战：一个聚类实例及解答  
 
 ## 问题描述  
 **例题：**  为研究我国31个省、市、自治区2007年的城镇居民生活消费的规律，根据调查资料作区域消费类型划分。原始数据表1所示：
