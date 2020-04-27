@@ -115,7 +115,7 @@
           {% endif %}
 
           {% if post.comments %}
-            {% if site.duoshuo_shortname or site.duoshuo and site.duoshuo.shortname %}
+            {% if site.valine.enable %}
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
