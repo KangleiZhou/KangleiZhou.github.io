@@ -79,7 +79,7 @@ plugins:
 favicon: /assets/images/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "share, tutorial"
+keywords: "share"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -87,7 +87,7 @@ keywords: "share, tutorial"
 rss:
 
 # Specify the date when the site was setup
-since: 2016
+since: 2020
 
 # icon between year and author @Footer
 authoricon: heart
