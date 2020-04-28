@@ -8,7 +8,14 @@ tags:
   - python
 published: true
 ---
-欢迎您访问我的学术[主页](https://zhoukanglei.github.io/)……
+欢迎您访问我的[学术主页](https://zhoukanglei.github.io/)……
+
+# 教育背景
+
+- 本科 
+    2016.09-2020.06 河南师范大学 | 计算机科学与技术
+- 博士 
+    2020.09以后 北京航空航天大学 | 计算机应用技术
 
 # 发表论文
 
