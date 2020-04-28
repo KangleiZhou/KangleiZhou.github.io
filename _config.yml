@@ -440,8 +440,8 @@ gitalk:
   clientID: da61526458df0cb2c8bf
   clientSecret: 16b170e85347a982db2b541f004ed1cee83009cc
   repo: kangleizhou.github.io
-  owner: KangleiZhou 
-  admin: KangleiZhou 
+  owner: KangleiZhou
+  admin: KangleiZhou
 
 # Baidu Share
 # Available value:
