@@ -1,7 +1,7 @@
 ---
 layout: page
 type: about
-title: 关于站长
+title: 关于博主
 
 tagline: by Kanglei Zhou
 tags: 
