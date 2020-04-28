@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 分享
+category: Sharing
 title: 订阅号【稷殿下】资源合集
 tagline: by Kanglei Zhou
 tags: 
