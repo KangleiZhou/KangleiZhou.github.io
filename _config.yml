@@ -328,7 +328,7 @@ post_wordcount:
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: https://kangleizhou.github.io/assets/images/jidianxia.png
+  qcode: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
   description: 觉得好、还想看，评论留言点个赞。关注稷殿下，天天都好看！
 
 # Declare license on posts
