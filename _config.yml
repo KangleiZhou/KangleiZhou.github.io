@@ -437,11 +437,11 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID: 3ccc49bf0d28ce788ea0
-  clientSecret: 5f565166b0c611af6fa3e8f8c2d84edd3fbb78e8
+  clientID: da61526458df0cb2c8bf
+  clientSecret: 16b170e85347a982db2b541f004ed1cee83009cc
   repo: kangleizhou.github.io
-  owner: ZhouKanglei
-  admin: ZhouKanglei
+  owner: KangleiZhou 
+  admin: KangleiZhou 
 
 # Baidu Share
 # Available value:
