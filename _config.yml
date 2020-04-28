@@ -217,7 +217,7 @@ social:
   Wechat: https://zhoukanglei.github.io/asserts/images/jidianxia_flash.gif
   Github: https://github.com/ZhouKanglei
   Scholar: https://scholar.google.com/citations?user=yG1FaioAAAAJ&hl=en
-  E-mail: zhoukanglei@qq.com
+  # E-mail: zhoukanglei@qq.com
 
 
 # Social Links Icons
@@ -232,7 +232,7 @@ social_icons:
   GitHub: github
   Wechat: weixin
   Scholar: google
-  E-mail: Tencent
+  # E-mail: Tencent
 
 
 # Sidebar Avatar
