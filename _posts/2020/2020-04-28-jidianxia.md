@@ -8,7 +8,15 @@ tags:
 published: true
 ---
 
+[toc]
+
 ## 资源合集
-请您点击[获取资源](https://zhoukanglei.github.io/jidianxia/)查找所有资源，
-若未找到您所要的资源，请您及时留言或[发邮件](mailto:zhoukanglei@qq.com)告知！
+
+请您点击[资源合集](https://zhoukanglei.github.io/jidianxia/)查找其它资源，
+
+> 若未找到您所要的资源，请您及时留言或[发邮件](mailto:zhoukanglei@qq.com)告知！
+
+## 全能扫描王
+
+点击[全能扫描王](https://wwa.lanzous.com/iejkpdjxikd)下载.
 
