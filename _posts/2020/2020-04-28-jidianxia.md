@@ -8,8 +8,6 @@ tags:
 published: true
 ---
 
-[toc]
-
 ## 资源合集
 
 请您点击[资源合集](https://zhoukanglei.github.io/jidianxia/)查找其它资源，
