@@ -1,7 +1,7 @@
 ---
 layout: post
 category: SCI
-title: 2020SCI期刊影响因子
+title: 2020年度期刊引证报告（JCR）首次入选的期刊列表
 tagline: by Kanglei Zhou
 tags: 
   - 稷殿下
