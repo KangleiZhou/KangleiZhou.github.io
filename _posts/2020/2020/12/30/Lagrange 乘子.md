@@ -1,3 +1,15 @@
+---
+layout: post
+category: OPT
+title: 【最优化基础】Lagrange 乘子
+tagline: by Kanglei Zhou
+tags: 
+  - 稷殿下
+published: true
+---
+
+
+
 # Lagrange 乘子
 
 ## 代数表述
