@@ -123,7 +123,9 @@ $$
 
 其中，原样本方差为
 $$
+\begin{equation}
 S = \frac{1}{N} \sum_{n=1}^{N}\left(x_n - \bar{x} \right)^2
+\end{equation}
 $$
 该约束优化问题可表述为
 $$
