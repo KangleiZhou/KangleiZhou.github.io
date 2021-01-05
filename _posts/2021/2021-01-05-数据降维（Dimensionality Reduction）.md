@@ -127,10 +127,12 @@ S = \frac{1}{N} \sum_{n=1}^{N}\left(x_n - \bar{x} \right)^2
 $$
 该约束优化问题可表述为
 $$
+\begin{equation*}
 \begin{aligned}
 \max_{u_1\in\mathbb{R}^M} ~~& u_1^TSu_1 \\
 \mathrm{s.t.} ~~& u_1^Tu_1 = 1
 \end{aligned}
+\end{equation*}
 $$
 利用拉格朗日乘子法，构造 Lagrange 函数
 $$
