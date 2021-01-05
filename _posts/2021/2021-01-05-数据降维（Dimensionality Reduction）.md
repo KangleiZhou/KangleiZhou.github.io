@@ -6,6 +6,7 @@ tagline: by Kanglei Zhou
 tags: 
   - Machine learning
 published: true
+
 ---
 
 # 数据降维（Dimensionality Reduction）
@@ -48,9 +49,9 @@ published: true
 ## 数据降维
 
 - 为什么要降维？
-  
-- 在原始的高维空间中，包含冗余信息和噪声信息，会在实际应用中引入误差，影响准确率；而降维可以提取数据内部的本质结构，减少冗余信息和噪声信息造成的误差，提高应用中的精度。
-  
+
+  - 在原始的高维空间中，包含冗余信息和噪声信息，会在实际应用中引入误差，影响准确率；而降维可以提取数据内部的本质结构，减少冗余信息和噪声信息造成的误差，提高应用中的精度。
+
 - 一个简单的例子
 
   - 噪声：选择一个方向投影过滤噪声
@@ -126,12 +127,10 @@ S = \frac{1}{N} \sum_{n=1}^{N}\left(x_n - \bar{x} \right)^2
 $$
 该约束优化问题可表述为
 $$
-\begin{equation*}
 \begin{aligned}
 \max_{u_1\in\mathbb{R}^M} ~~& u_1^TSu_1 \\
 \mathrm{s.t.} ~~& u_1^Tu_1 = 1
 \end{aligned}
-\end{equation*}
 $$
 利用拉格朗日乘子法，构造 Lagrange 函数
 $$
@@ -186,48 +185,43 @@ $$
 $$
 目标为最小化失真率
 $$
-J = \frac{1}{N} \sum_{n=1}^N\| x_n - \tilde{x}_n \|^2
+\min ~J = \min~\frac{1}{N} \sum_{n=1}^N\| x_n - \tilde{x}_n \|^2
 $$
 导数置为 0 得
 $$
-\begin{equation*}
 \begin{aligned}
 z_{nj} &= x_n^T u_j, j = 1,2,\cdots,M \\
 b_j &= \bar{x}^T u_j,j=M+1,\cdot,\cdots,D
 \end{aligned}
-\end{equation*}
 $$
 则有
 $$
-\begin{equation*}
 \begin{aligned}
 x_n - \tilde{x}_n &= \sum_{i=M+1}^D\{ (x_n-\bar{x})^T u_i \} u_i
 
 \end{aligned}
-\end{equation*}
 $$
 即
 $$
-\begin{equation*}
 \begin{aligned}
 
-J &= \frac{1}{N}\sum_{n=1}^N \sum_{M+1}^D (x_n^Tu_i - \bar{x}^Tu_i)^2 \\
+J &= \frac{1}{N}\sum_{n=1}^N \sum_{M+1}^D \left(x_n^Tu_i - \bar{x}^Tu_i\right)^2 \\
 &=\sum_{i=M+1}^Du_i^TSu_i
 
 \end{aligned}
-\end{equation*}
 $$
 构造拉格朗日函数，得
 $$
-\begin{equation*}
-\begin{aligned}
+
 \mathcal{L} =\sum_{i=M+1}^Du_i^TSu_i + \sum_{i=M+1}^D\lambda_i (1-u_i^Tu_i)
-\end{aligned}
-\end{equation*}
+
 $$
 对 $u_i$ 求偏导，并置为 0 得
 $$
-\begin{equation*}
 S u_i = \lambda_i u_i
-\end{equation*}
 $$
+$J$ 最小时取 $D-M$ 个最小得特征值。对应的失真度为
+$$
+J = \sum_{i = M+1}^D \lambda_i
+$$
+
