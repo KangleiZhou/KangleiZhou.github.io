@@ -133,6 +133,8 @@ $$
 
 
 该约束优化问题可表述为
+
+
 $$
 \begin{equation*}
 \begin{aligned}
@@ -141,22 +143,40 @@ $$
 \end{aligned}
 \end{equation*}
 $$
+
+
 利用拉格朗日乘子法，构造 Lagrange 函数
+
+
 $$
 \mathcal{L}(u_1) = u_1^TSu_1 + \lambda_1(1-u_1^Tu_1)
 $$
+
+
 对 $u_1$ 求偏导并令偏导数为 0，有
+
+
 $$
 \frac{\partial \mathcal{L}}{\partial u_1} = 2 S u_1 - 2 \lambda_1 u_1 = 0
 $$
+
+
 即
+
+
 $$
 S u_1 = {\color{red}\lambda_1} u_1
 $$
+
+
 结论：$u_1$ 是 $S$ 的特征向量。进一步，有
+
+
 $$
 \max_{u_1 \in \mathbb{R}^M} u_1^TSu_1 = \lambda_1
 $$
+
+
 即 $u_1$ 是 $S$ 最大特征值对应的特征向量时，方差取到最大值，称 $u_1$ 为第一主成分。
 
 #### 一般情况
@@ -170,14 +190,24 @@ $$
 - 依次循环下去得到M维的空间
 
 定义一组**单位正交**的 $D$ 维基向量 $\{u_i\},i=1,2,\cdots,D$，满足
+
+
 $$
 u_i^Tu_j = \delta_{ij} \to 0, u_i^Tu_i = 1
 $$
+
+
 由于基是完全的，每个数据点可以表示为基向量的线性组合
+
+
 $$
 x_n = \sum_{i  =1}^{D} \alpha_{ni}u_i
 $$
+
+
 相当于进行了坐标转换
+
+
 $$
 \begin{aligned}
 \{x_{n1},x_{n2},\cdots,x_{nD}\} &\mathop{\longrightarrow}^{\{u_i\}} \{\alpha_{n1},\alpha_{n2},\cdots,\alpha_{nD}\}
@@ -186,32 +216,56 @@ $$
 \alpha_{nj} &= x_n^Tu_j
 \end{aligned}
 $$
+
+
 则
+
+
 $$
 x_n = \sum_{i=1}^D\left( x_n^T u_i \right)u_i
 $$
+
+
 在 $M$ 维变量（$M<D$）生成的空间中对其进行表示
+
+
 $$
 \tilde{x}_n = \sum_{i=1}^M {\color{red}z_{ni}}u_i + \sum_{i = M+1}^D {\color{magenta}b_i} u_i
 $$
+
+
 目标为最小化失真率
+
+
 $$
 \min ~J = \min~\frac{1}{N} \sum_{n=1}^N\| x_n - \tilde{x}_n \|^2
 $$
+
+
 导数置为 0 得
+
+
 $$
 \begin{aligned}
 z_{nj} &= x_n^T u_j, j = 1,2,\cdots,M \\
 b_j &= \bar{x}^T u_j,j=M+1,\cdot,\cdots,D
 \end{aligned}
 $$
+
+
 则有
+
+
 $$
 \begin{aligned}
 x_n - \tilde{x}_n &= \sum_{i=M+1}^D\{ (x_n-\bar{x})^T u_i \} u_i
 \end{aligned}
 $$
+
+
 即
+
+
 $$
 \begin{aligned}
 
@@ -220,15 +274,27 @@ J &= \frac{1}{N}\sum_{n=1}^N \sum_{M+1}^D \left(x_n^Tu_i - \bar{x}^Tu_i\right)^2
 
 \end{aligned}
 $$
+
+
 构造拉格朗日函数，得
+
+
 $$
 \mathcal{L} =\sum_{i=M+1}^Du_i^TSu_i + \sum_{i=M+1}^D\lambda_i (1-u_i^Tu_i)
 $$
+
+
 对 $u_i$ 求偏导，并置为 0 得
+
+
 $$
 S u_i = \lambda_i u_i
 $$
+
+
 $J$ 最小时取 $D-M$ 个最小得特征值。对应的失真度为
+
+
 $$
 J = \sum_{i = M+1}^D \lambda_i
 $$
@@ -262,12 +328,18 @@ $$
 ### 利用 PCA 处理高维数据
 
 在实际应用中，样本维数可能很高，远大于样本的个数在人脸识别中，1000 张人脸图像，每张图像 $100\times100$ 像素。$D$ 维空间，$N$ 个样本点，$N<D$。$X$ 是 $N \times D$ 维的数据矩阵，其行向量为 $(x_n - \bar{x})^T$，则 $S$ 可以表示为
+
+
 $$
 S = N^{-1} X^T X
 $$
+
+
 其中 $S \in \mathbb{R}^{10000\times10000}$，显然 $D\times D$ 的维度相当大，引起维度灾难。
 
 又
+
+
 $$
 \begin{aligned}
 \frac{1}{N} X^TXu_i &= \lambda_i u_i
@@ -277,20 +349,34 @@ $$
 \frac{1}{N} XX^T (Xu_i) &= \lambda_i (Xu_i)
 \end{aligned}
 $$
+
+
 令 $v_i = X u_i$，得到
+
+
 $$
 \frac{1}{N} XX^Tv_i = \lambda_iv_i
 $$
+
+
 其中 $XX^T \in \mathbb{R}^{100\times100}$，显然 $N\times N$ 的维度相比 $D\times D$ 要小的多了。
 
 因此，需对 $\frac{1}{N} XX^Tv_i$ 进行特征值分解得 $\lambda_i$ 和 $v_i$，所以
+
+
 $$
 u_i \propto X^T v_i
 $$
+
+
 因为 $u_i$ 为单位向量，所以
+
+
 $$
 u_i = \frac{1}{\|X^Tv_i\|_2}X^Tv_i
 $$
+
+
 这就是所谓的**奇异值分解** (Singular Value Decomposition, SVD)。
 
 ## 概率主成分分析
@@ -298,14 +384,24 @@ $$
 - PCA 的概率表示
 
 隐变量 $z$ 以如下形式产生 $D$ 维观测变量 $x$
+
+
 $$
 x = Wz + \mu + \epsilon
 $$
+
+
 其中，$\mu$ 为均值，$\epsilon$ 为高斯噪声。 $z$ 为 $M$ 维的隐变量，且满足高斯分布
+
+
 $$
 p(z) = \mathcal{N}(z|0,I)
 $$
+
+
 $x$ 以 $z$ 为条件的分布也满足高斯分布
+
+
 $$
 p(x|z) = \mathcal{N}(x|Wz+\mu,\sigma^2I)
 $$
