@@ -126,7 +126,7 @@ $$
 
 $$
 \begin{equation}
-\color{red}
+\color{blue}
 S = \frac{1}{N} \sum_{n=1}^{N}\left(x_n - \bar{x} \right)^2
 \end{equation}
 $$
