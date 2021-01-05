@@ -170,10 +170,12 @@ x_n = \sum_{i  =1}^{D} \alpha_{ni}u_i
 $$
 相当于进行了坐标转换
 $$
-\{x_{n1},x_{n2},\cdots,x_{nD}\} \mathop{\longrightarrow}^{\{u_i\}} \{\alpha_{n1},\alpha_{n2},\cdots,\alpha_{nD}\}
+\begin{aligned}
+\{x_{n1},x_{n2},\cdots,x_{nD}\} &\mathop{\longrightarrow}^{\{u_i\}} \{\alpha_{n1},\alpha_{n2},\cdots,\alpha_{nD}\}
 \\
-\Downarrow \\
-\alpha_{nj} = x_n^Tu_j
+&~~\Downarrow \\
+\alpha_{nj} &= x_n^Tu_j
+\end{aligned}
 $$
 则
 $$
@@ -259,11 +261,13 @@ $$
 
 又
 $$
-\frac{1}{N} X^TXu_i = \lambda_i u_i
+\begin{aligned}
+\frac{1}{N} X^TXu_i &= \lambda_i u_i
 \\
-\Downarrow
+&\Downarrow
 \\
-\frac{1}{N} XX^T (Xu_i) = \lambda_i (Xu_i)
+\frac{1}{N} XX^T (Xu_i) &= \lambda_i (Xu_i)
+\end{aligned}
 $$
 令 $v_i = X u_i$，得到
 $$
@@ -283,3 +287,23 @@ $$
 
 ## 概率主成分分析
 
+- PCA 的概率表示
+
+隐变量 $z$ 以如下形式产生 $D$ 维观测变量 $x$
+$$
+x = Wz + \mu + \epsilon
+$$
+其中，$\mu$ 为均值，$\epsilon$ 为高斯噪声。 $z$ 为 $M$ 维的隐变量，且满足高斯分布
+$$
+p(z) = \mathcal{N}(z|0,I)
+$$
+$x$ 以 $z$ 为条件的分布也满足高斯分布
+$$
+p(x|z) = \mathcal{N}(x|Wz+\mu,\sigma^2I)
+$$
+![以有向图表示](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page42_Image1.jpg)
+
+- 从隐空间到数据空间的映射，与 PCA 的传统视角相反
+- 从数据空间到隐空间的映射，可以由**贝叶斯定理**得到
+
+![1 维隐变量空间 - 2 维数据空间 - 边缘分布的等密度线](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page43_Image1.jpg)
