@@ -50,7 +50,7 @@ published: true
 
 - 为什么要降维？
 
-  - 在原始的高维空间中，包含冗余信息和噪声信息，会在实际应用中引入误差，影响准确率；而降维可以提取数据内部的本质结构，减少冗余信息和噪声信息造成的误差，提高应用中的精度。
+- 在原始的高维空间中，包含冗余信息和噪声信息，会在实际应用中引入误差，影响准确率；而降维可以提取数据内部的本质结构，减少冗余信息和噪声信息造成的误差，提高应用中的精度。
 
 - 一个简单的例子
 
@@ -98,7 +98,7 @@ published: true
 > - 使得降维后样本的**方差尽可能大**
 > - 使得降维后数据的**均方误差尽可能小**
 
-### 算法
+### 算法原理
 
 >  **例**	将 $D$ 维数据集 $\{x_n\},n=1,2,\cdots,N$ 降为 $M$ 维，其中 $M < D$
 
@@ -212,9 +212,7 @@ J &= \frac{1}{N}\sum_{n=1}^N \sum_{M+1}^D \left(x_n^Tu_i - \bar{x}^Tu_i\right)^2
 $$
 构造拉格朗日函数，得
 $$
-
 \mathcal{L} =\sum_{i=M+1}^Du_i^TSu_i + \sum_{i=M+1}^D\lambda_i (1-u_i^Tu_i)
-
 $$
 对 $u_i$ 求偏导，并置为 0 得
 $$
@@ -224,4 +222,64 @@ $J$ 最小时取 $D-M$ 个最小得特征值。对应的失真度为
 $$
 J = \sum_{i = M+1}^D \lambda_i
 $$
+
+### 算法步骤
+
+- 计算给定样本 $\{x_n\},n=1,2,\cdots,N$ 的均值 $\bar{x}$ 和协方差矩阵 $S$
+- 计算 $S$ 的特征向量与特征值
+- 将特征值从大到小排列，前 $M$ 个特征值 $\lambda_1,\lambda_2,\cdots,\lambda_M$ 所对应的特征向量 $u_1,u_2,\cdots,u_M$ 构成投影矩阵
+
+![样本点及投影方向 $v_1$ 和 $v_2$](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page33_Image1.jpg)
+
+![不同样本分布的投影方向](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page33_Image2.jpg)
+
+### 应用
+
+![均值图像及不同成分所对应的图像](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page34_Image1.jpg)
+
+特征值分布谱特征值由大到小排列，如下
+
+![特征值排列](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page34_Image2.jpg)
+
+选取前 $M$ 个特征值进行降维，有如下结果
+
+![$M$ 取不通值时的结果](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page35_Image2.jpg)
+
+失真度分布谱随 $M$ 取值由小到大排列，如下：
+
+![失真度分布谱](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-1-5/data_reduce_Page35_Image1.jpg)
+
+### 利用 PCA 处理高维数据
+
+在实际应用中，样本维数可能很高，远大于样本的个数在人脸识别中，1000 张人脸图像，每张图像 $100\times100$ 像素。$D$ 维空间，$N$ 个样本点，$N<D$。$X$ 是 $N \times D$ 维的数据矩阵，其行向量为 $(x_n - \bar{x})^T$，则 $S$ 可以表示为
+$$
+S = N^{-1} X^T X
+$$
+其中 $S \in \mathbb{R}^{10000\times10000}$，显然 $D\times D$ 的维度相当大，引起维度灾难。
+
+又
+$$
+\frac{1}{N} X^TXu_i = \lambda_i u_i
+\\
+\Downarrow
+\\
+\frac{1}{N} XX^T (Xu_i) = \lambda_i (Xu_i)
+$$
+令 $v_i = X u_i$，得到
+$$
+\frac{1}{N} XX^Tv_i = \lambda_iv_i
+$$
+其中 $XX^T \in \mathbb{R}^{100\times100}$，显然 $N\times N$ 的维度相比 $D\times D$ 要小的多了。
+
+因此，需对 $\frac{1}{N} XX^Tv_i$ 进行特征值分解得 $\lambda_i$ 和 $v_i$，所以
+$$
+u_i \propto X^T v_i
+$$
+因为 $u_i$ 为单位向量，所以
+$$
+u_i = \frac{1}{\|X^Tv_i\|_2}X^Tv_i
+$$
+这就是所谓的**奇异值分解** (Singular Value Decomposition, SVD)。
+
+## 概率主成分分析
 
