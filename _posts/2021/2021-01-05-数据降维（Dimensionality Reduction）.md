@@ -124,6 +124,7 @@ $$
 其中，原样本方差为
 $$
 \begin{equation}
+\color{red}
 S = \frac{1}{N} \sum_{n=1}^{N}\left(x_n - \bar{x} \right)^2
 \end{equation}
 $$
@@ -204,7 +205,6 @@ $$
 $$
 \begin{aligned}
 x_n - \tilde{x}_n &= \sum_{i=M+1}^D\{ (x_n-\bar{x})^T u_i \} u_i
-
 \end{aligned}
 $$
 即
