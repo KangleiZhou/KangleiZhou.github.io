@@ -8,14 +8,15 @@ tags:
   - python
 published: true
 ---
-欢迎您访问我的[学术主页](https://zhoukanglei.github.io/)……
-
-# 教育背景
+# 教育经历
 
 - 本科 
     2016.09-2020.06 河南师范大学 | 计算机科学与技术
+    
+    2017.09-2019.06 河南师范大学 | 英语（辅修）
+    
 - 博士 
-    2020.09以后 北京航空航天大学 | 计算机应用技术
+    2020.09至今 北京航空航天大学 | 计算机应用技术
 
 # 发表论文
 
@@ -38,3 +39,5 @@ Ming Li*, Kanglei Zhou, Hua Ren, Haiju Fan*. Applied Sciences-Basel: Jan. 2019 ,
 - [5] Fidelity Preserved Data Hiding in Encrypted Highly Autocorrelated Data Based on Homomorphism and Compressive Sensing.
 Ming Li*, Lanlan Wang, Jingjing Fan, Yushu Zhang*, Kanglei Zhou, Haiju Fan. IEEE Access: Jun. 2019 ,7 ,69808-69825.
 [Download](https://sci-hub.tw/https://ieeexplore.ieee.org/document/8723333)
+
+> 最新内容：[ResearchGate](https://www.researchgate.net/profile/Kanglei_Zhou2/research)
