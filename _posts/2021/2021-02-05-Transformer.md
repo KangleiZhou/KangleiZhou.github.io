@@ -64,23 +64,35 @@ $$
 ![Self attention layer](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612520959853-seq_1.png)
 
 拿每个 query $q$ 去对每个 key $k$ 做 attention，文中使用 `Scaled Dot-Product Attention`:
+
+
 $$
 \alpha_{1,i} = q^1 \cdot k^i / \sqrt{d}
 $$
+
+
 其中，$\cdot$ 表示 dot product，$d$ 是 $q$ 的维度，能够抵消因维度引起的不平衡。
 
 ![attention](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612521886176-seq_2.png)
 
 然后，再进行 `softmax` 进行激活
+
+
 $$
 \hat{\alpha}_{1,i} = \frac{\exp \left( \alpha_{1,i} \right)}{\sum\limits_j \exp\left( \alpha_{1,i} \right)}
 $$
+
+
 ![softmax](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612521979492-softmax.png)
 
 拿每个 query $q$ 去对每个 key k 做 attention
+
+
 $$
 b^1 = \sum\limits_i \hat{\alpha}_{1,i} v^i
 $$
+
+
 ![乘和](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612522535983-sum.png)
 
 这样，$b^1,b^2,b^3,b^4$ 可以并行计算得到。
@@ -103,9 +115,13 @@ $$
 ![Step 4](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612523223766-Step_4.png)
 
 于是，可得
+
+
 $$
 \text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
+
+
 如下图所示：
 
 ![Transformer 矩阵计算](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612523362348-Steps.png)
@@ -115,13 +131,21 @@ $$
 # `Multi-head Self-attention`
 
 `Multi-head Self-attention` 允许模型共同注意来自不同位置的不同表示子空间的信息。不同的 `head` 可以各司其职，学习到不同意义的特征（如 local 的或者 global 的）。
+
+
 $$
 \text{MultiHead}(Q,K,V) = \text{Concat}(\text{head}_1,\cdots,\text{head}_h) W^O
 $$
+
+
 其中
+
+
 $$
 \text{head}_i = \text{Attention}(QW_i^Q,KW_i^K, VW_i^V)
 $$
+
+
 下图是 2 head 的注意力图
 
 ![2 head self-attention example](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-2-5/1612527018492-multi_head_2.png)
