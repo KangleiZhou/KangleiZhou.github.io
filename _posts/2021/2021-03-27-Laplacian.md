@@ -3,6 +3,7 @@ layout: post
 category: Laplace
 title: 【流体】散度与拉普拉斯
 tagline: by Qifan
+author: 奇凡兄
 tags: 
   - Laplace
 published: true
