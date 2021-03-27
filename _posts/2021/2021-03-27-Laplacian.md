@@ -2,7 +2,7 @@
 layout: post
 category: Laplace
 title: 【流体】散度与拉普拉斯
-tagline: by 奇凡
+tagline: by Qifan
 tags: 
   - Laplace
 published: true
