@@ -13,9 +13,13 @@ published: true
 
 > 首先阅读[文章](https://docs.qq.com/pdf/DUUR2Z1FrYUVqU0ts "【腾讯文档】Entropy_of_English_PeterBrown")，参考文章来计算所提供[数据库](https://share.weiyun.com/5zGPyJX "金庸小说数据库")中中文的平均信息熵。
 
-# 引言
+![波尔茨曼](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2F50%2Fv2-8fb4fe97426460b92b370a304f711180_hd.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620437597&t=3253d42d71b92e91ebd0d33c56f540f1)
+
+# 信息熵
 
 [熵](https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA) "维基百科-熵")在信息论中是接收的每条消息中包含的信息的平均量，又被称为信息熵、信源熵、平均自信息量。
+
+![描述混乱程度的物理量：熵](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170611%2F32aeba63255d4dd1965133da58ece3a0_th.jpg&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620437410&t=9b0528a8d33e3e79079f82f87163622e)
 
 依据 Boltzmann's H-theorem，香农把随机变量 $X$ 的熵值 $Η$ 定义如下，其值域为 ${x_1, ..., x_n}$：
 
