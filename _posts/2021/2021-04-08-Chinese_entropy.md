@@ -19,35 +19,50 @@ published: true
 [熵](https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA) "维基百科-熵")在信息论中是接收的每条消息中包含的信息的平均量，又被称为信息熵、信源熵、平均自信息量。
 
 依据 Boltzmann's H-theorem，香农把随机变量 $X$ 的熵值 $Η$ 定义如下，其值域为 ${x_1, ..., x_n}$：
+
+
 $$
 \begin{equation}
 {\displaystyle \mathrm {H} (X)=\mathrm {E} [\mathrm {I} (X)]=\mathrm {E} [-\ln(\mathrm {P} (X))]}
-
 \end{equation}
 $$
+
+
 其中，$P$ 为 $X$ 的概率质量函数（probability mass function），$E$ 为期望函数，而$\mathrm {I} (X)$ 是 $X$ 的信息量（又称为自信息）。$\mathrm {I} (X)$ 本身是个随机变数。
 
 当取自有限的样本时，熵的公式可以表示为：
+
+
 $$
 \begin{equation}
  \mathrm {H} (X)=\sum _{i}{\mathrm {P} (x_{i})\,\mathrm {I} (x_{i})}=-\sum _{i}{\mathrm {P} (x_{i})\log _{b}\mathrm {P} (x_{i})},
 
 \end{equation}
 $$
+
+
 在这里$b$是对数所使用的底，通常是 2, 自然常数 e，或是 10。当 $b = 2$，熵的单位是 `bit`；当 $b=\mathrm{e}$，熵的单位是 `nat`；而当 $b = 10$，熵的单位是 `Hart`。
 
 $pi = 0$ 时，对于一些 $i$ 值，对应的被加数 $0\times \log_b 0$ 的值将会是 0，这与极限一致。
+
+
 $$
 \begin{equation}
 \lim _{p\to 0+}p\log p=0
 \end{equation}
 $$
+
+
 还可以定义事件 $X$ 与 $Y$ 分别取 $x_i$ 和 $y_j$ 时的条件熵为
+
+
 $$
 \begin{equation}
  \mathrm {H} (X|Y)=-\sum _{i,j}p(x_{i},y_{j})\log {\frac {p(x_{i},y_{j})}{p(y_{j})}}
 \end{equation}
 $$
+
+
 其中$p(x_i, y_j)$为 $X = x_i$ 且 $Y = y_j$ 时的概率。这个量应当理解为你知道$Y$的值前提下随机变量 $X$ 的随机性的量。
 
 # 实验过程
