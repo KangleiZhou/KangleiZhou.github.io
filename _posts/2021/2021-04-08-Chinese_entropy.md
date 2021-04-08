@@ -9,11 +9,11 @@ tags:
 published: true
 ---
 
-[![波尔茨曼与熵](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-4-8/1617845867679-image.png)](https://mp.weixin.qq.com/s/a3TwZt_s3p-wgmIV2-ZPxg)
-
 # 问题描述
 
 > 首先阅读[文章](https://docs.qq.com/pdf/DUUR2Z1FrYUVqU0ts "【腾讯文档】Entropy_of_English_PeterBrown")，参考文章来计算所提供[数据库](https://share.weiyun.com/5zGPyJX "金庸小说数据库")中中文的平均信息熵。
+
+[![波尔茨曼与熵](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-4-8/1617845867679-image.png)](https://mp.weixin.qq.com/s/a3TwZt_s3p-wgmIV2-ZPxg)
 
 # 信息熵
 
