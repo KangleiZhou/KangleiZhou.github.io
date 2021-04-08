@@ -442,7 +442,7 @@ changyan:
 gitalk:
   enable: true
   clientID: da61526458df0cb2c8bf
-  clientSecret: 16b170e85347a982db2b541f004ed1cee83009cc
+  clientSecret: 020dfcfbd839a87f9dab38ecf768a0aea9595e17
   repo: gitalk_blog_comments
   owner: KangleiZhou
   admin: KangleiZhou
