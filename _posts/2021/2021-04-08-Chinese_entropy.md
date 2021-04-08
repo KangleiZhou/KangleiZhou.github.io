@@ -183,7 +183,7 @@ def get_tf(words):
 `ing`, `tion` 等等。 这些组合中，你即使丢掉了一个字母，也不妨碍我们阅读。而中文的话，字与字之间的关联就小多了，一句话丢掉很多字的话，这句话的意思就很难还原了。而关联小，也就是字与字之间出现的频率差距不大，我们不容易猜到下一个字，这时，每个字提供的信息量就大。因此，中文信息熵要比英文高。
 
 # 附录
-- 预处理程序
+## 预处理程序
 
 ```python
 import os
@@ -314,7 +314,9 @@ def print_markdown_table(head_name, rows_name, cols_name, data):
     return table
 ```
 
-- 信息熵计算程序
+## 信息熵计算程序
+
+
 ```python
 import jieba
 import math
@@ -322,8 +324,7 @@ import time
 
 from util.tools import *
 
-# 词频统计，方便计算信息熵
-def get_tf(words):
+def get_tf(words): # 词频统计，方便计算信息熵
     tf_dic = {}
     for w in words:
         tf_dic[w] = tf_dic.get(w, 0) + 1
@@ -376,5 +377,4 @@ if __name__ == '__main__':
 
     entropy = [item[4] for item in data]
     logging.info('Average entropy: %.4f' % (sum(entropy) / len(entropy)))
-
 ```
