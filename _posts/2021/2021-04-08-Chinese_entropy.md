@@ -72,7 +72,7 @@ $$
 
 ## 多线程数据处理
 
-为了加速数据处理速度，使用 `multiprocessing` 进行实验。实验中，需要逐个读取小说文件，进行句读短句，然后将每一句话作为一行生成的到一个新的文件 `novel_sentence` 中。
+为了加速数据处理速度，使用 `multiprocessing` 进行实验。实验中，需要逐个读取小说文件，进行句读短句，将这些文本按照标点符号分割，然后将每一句话作为一行生成的到一个新的文件 `novel_sentence` 中。
 
 ```python
     # get every single corpus
@@ -101,7 +101,7 @@ $$
 
 
 ## `jieba` 分词
-"结巴"中文分词：做最好的Python中文分词组件 "Jieba" ，
+"结巴"中文分词：做最好的 Python 中文分词组件 `Jieba` ，
 - 支持三种分词模式：
 
   - 精确模式，试图将句子最精确地切开，适合文本分析；
@@ -123,7 +123,7 @@ $$
             words_len += 1
 ```
 
-## 计算信息熵
+## 词频统计
 
 首先进行词频统计，方便计算信息熵。
 
@@ -134,14 +134,35 @@ def get_tf(words):
     for w in words:
         tf_dic[w] = tf_dic.get(w, 0) + 1
     return tf_dic.items()
-
 ```
-计算信息熵
+## 计算信息熵
+
+本文分别利用基于分词的一元模型、二元模型、三元模型估计所给语料库的中文信息熵。
+
+### Unigram
 
 ```python
   entropy = [-(uni_word[1]/words_len)*math.log(uni_word[1]/words_len, 2) for uni_word in words_tf]
   entropy = round(sum(entropy), 4)
   logging.info("基于词的一元模型的中文信息熵为（%s）: %.4f 比特/词" % (file_path, entropy))
+```
+
+### bigram
+
+```python
+# 二元模型词频统计
+def get_bigram_tf(tf_dic, words):
+    for i in range(len(words)-1):
+        tf_dic[(words[i], words[i+1])] = tf_dic.get((words[i], words[i+1]), 0) + 1
+```
+
+### trigram
+
+```python
+# 三元模型词频统计
+def get_trigram_tf(tf_dic, words):
+    for i in range(len(words)-2):
+        tf_dic[((words[i], words[i+1]), words[i+2])] = tf_dic.get(((words[i], words[i+1]), words[i+2]), 0) + 1
 ```
 
 打印输出结果，输出格式为 `Markdown` 的 `table`。
@@ -156,12 +177,15 @@ def get_tf(words):
     logging.info('Average entropy: %.4f' % (sum(entropy) / len(entropy)))
 ```
 
-
 # 实验结果
 
-完整的实验程序见附录，下表详细列举出各个数据文件中的语料库字数、分词字数、平均词长、中文信息熵以及运行时间等。
+完整的实验程序见附录，本节列举实验结果。
 
-|    # |     小说名称 | 语料字数 | 分词个数 | 平均词长 | 信息熵（unigram） | 运行时长（s） |
+## 语料库信息统计
+
+下表详细列举出各个数据文件中的语料库字数、分词字数、平均词长、中文信息熵以及运行时间等。
+
+|    # |     小说名称 | 语料字数 | 分词个数 | 平均词长 | 信息熵（比特/词） | 运行时长（s） |
 | ---: | -----------: | -------: | -------: | -------: | ----------------: | ------------: |
 |    1 | 三十三剑客图 |    61130 |    39288 |   1.5559 |           10.0952 |        0.5773 |
 |    2 |   书剑恩仇录 |   497378 |   315547 |   1.5762 |           10.1402 |        3.4593 |
@@ -180,11 +204,20 @@ def get_tf(words):
 |   15 |       鸳鸯刀 |    34396 |    22574 |   1.5237 |            8.9903 |         0.463 |
 |   16 |       鹿鼎记 |  1172641 |   755617 |   1.5519 |            9.9011 |       18.1554 |
 
-通过计算，得到所给 16 个小说中中文平均信息熵为 `9.8179 比特/词`。
+通过计算，得到所给 16 个小说中中文 `unigram` 平均信息熵为 `9.8179 比特/词`。
+
+## 不同分词模型结果
+
+分别使用一元、二元、三元分词模型对所给定的所有小说组成的语料库进行信息熵的计算，计算结果如下表所示。
+
+|    # | 分词模型 | 语料字数 | 分词个数 | 平均词长 | 信息熵（比特/词） | 运行时长（s） |
+| ---: | -------: | -------: | -------: | -------: | ----------------: | ------------: |
+|    1 |  unigram |  7284925 |  4309148 |   1.6968 |           12.1802 |       38.6988 |
+|    2 |   bigram |  7284925 |  4309148 |   1.6906 |            6.7252 |       60.7611 |
+|    3 |  trigram |  7284925 |  4309148 |   1.6906 |            2.5298 |       78.8602 |
 
 # 总结
-英语里，很多单词拼写中的字母组合是经常一起出现的，比如 
-`ing`, `tion` 等等。 这些组合中，你即使丢掉了一个字母，也不妨碍我们阅读。而中文的话，字与字之间的关联就小多了，一句话丢掉很多字的话，这句话的意思就很难还原了。而关联小，也就是字与字之间出现的频率差距不大，我们不容易猜到下一个字，这时，每个字提供的信息量就大。因此，中文信息熵要比英文高。
+英语里，很多单词拼写中的字母组合是经常一起出现的，比如 `ing`, `tion` 等等。 这些组合中，你即使丢掉了一个字母，也不妨碍我们阅读。而中文的话，字与字之间的关联就小多了，一句话丢掉很多字的话，这句话的意思就很难还原了。而关联小，也就是字与字之间出现的频率差距不大，我们不容易猜到下一个字，这时，每个字提供的信息量就大。因此，中文信息熵要比英文高。
 
 # 附录
 ## 预处理程序
@@ -328,17 +361,149 @@ import time
 
 from util.tools import *
 
-def get_tf(words): # 词频统计，方便计算信息熵
+# 词频统计，方便计算信息熵
+def get_tf_1(words):
     tf_dic = {}
     for w in words:
         tf_dic[w] = tf_dic.get(w, 0) + 1
     return tf_dic.items()
 
-def calculate_entropy(file_path='./novel_sentence.txt'):
+# 词频统计，方便计算信息熵
+def get_tf_2(tf_dic, words):
+    for i in range(len(words)-1):
+        tf_dic[words[i]] = tf_dic.get(words[i], 0) + 1
+
+# 三元模型词频统计
+def get_trigram_tf(tf_dic, words):
+    for i in range(len(words)-2):
+        tf_dic[((words[i], words[i+1]), words[i+2])] = tf_dic.get(((words[i], words[i+1]), words[i+2]), 0) + 1
+
+
+# 二元模型词频统计
+def get_bigram_tf(tf_dic, words):
+    for i in range(len(words)-1):
+        tf_dic[(words[i], words[i+1])] = tf_dic.get((words[i], words[i+1]), 0) + 1
+
+
+def calculate_bigram_entropy(file_path):
+    before = time.time()
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+        corpus = []
+        count = 0
+        for line in f:
+            if line != '\n':
+                corpus.append(line.strip())
+                count += len(line.strip())
+
+    split_words = []
+    words_len = 0
+    line_count = 0
+    words_tf = {}
+    bigram_tf = {}
+
+    for line in corpus:
+        for x in jieba.cut(line):
+            split_words.append(x)
+            words_len += 1
+
+        get_tf_2(words_tf, split_words)
+        get_bigram_tf(bigram_tf, split_words)
+
+        split_words = []
+        line_count += 1
+
+    logging.info("语料库字数: %d" % count)
+    logging.info("分词个数: %d" % words_len)
+    logging.info("平均词长: %.4f" % round(count / words_len, 4))
+    logging.info("语料行数: %d" % line_count)
+    # logging.info("非句子末尾词频表: " +  words_tf)
+    # logging.info("二元模型词频表: " + bigram_tf)
+
+    bigram_len = sum([dic[1] for dic in bigram_tf.items()])
+    logging.info("二元模型长度: %d" % bigram_len)
+
+    entropy = []
+    for bi_word in bigram_tf.items():
+        jp_xy = bi_word[1] / bigram_len  # 计算联合概率p(x,y)
+        cp_xy = bi_word[1] / words_tf[bi_word[0][0]]  # 计算条件概率p(x|y)
+        entropy.append(-jp_xy * math.log(cp_xy, 2))  # 计算二元模型的信息熵
+    entropy = round(sum(entropy), 4)
+    logging.info("基于词的二元模型的中文信息熵为（%s）: %.4f 比特/词" % (file_path, entropy))
+
+    after = time.time()
+    logging.info("运行时间: %.4f s" % round(after - before, 4))
+
+    runtime = round(after - before, 4)
+    return ['bigram', len(corpus), words_len, round(len(corpus) / words_len, 4), entropy, runtime]
+
+
+def calculate_trigram_entropy(file_path):
     before = time.time()
     with open(file_path, 'r', encoding='utf-8') as f:
+        corpus = []
+        count = 0
+        for line in f:
+            if line != '\n':
+                corpus.append(line.strip())
+                count += len(line.strip())
 
-        corpus = f.read()  # 读取文件得到语料库文本
+    split_words = []
+    words_len = 0
+    line_count = 0
+    words_tf = {}
+    trigram_tf = {}
+
+    for line in corpus:
+        for x in jieba.cut(line):
+            split_words.append(x)
+            words_len += 1
+
+        get_bigram_tf(words_tf, split_words)
+        get_trigram_tf(trigram_tf, split_words)
+
+        split_words = []
+        line_count += 1
+
+    logging.info("语料库字数: %d" % count)
+    logging.info("分词个数: %d" % words_len)
+    logging.info("平均词长: %.4f" % round(count / words_len, 4))
+    logging.info("语料行数: %d" % line_count)
+    # logging.info("非句子末尾二元词频表:" + words_tf)
+    # logging.info("三元模型词频表:" + trigram_tf)
+
+    trigram_len = sum([dic[1] for dic in trigram_tf.items()])
+    logging.info("三元模型长度: %d" % trigram_len)
+
+    entropy = []
+    for tri_word in trigram_tf.items():
+        jp_xy = tri_word[1] / trigram_len  # 计算联合概率p(x,y)
+        cp_xy = tri_word[1] / words_tf[tri_word[0][0]]  # 计算条件概率p(x|y)
+        entropy.append(-jp_xy * math.log(cp_xy, 2))  # 计算三元模型的信息熵
+    entropy = round(sum(entropy), 4)
+    logging.info("基于词的三元模型的中文信息熵为（%s）: %.4f 比特/词" % (file_path, entropy))  # 0.936
+
+    after = time.time()
+    logging.info("运行时间: %.4f" % round(after - before, 4))
+    runtime = round(after - before, 4)
+
+    return ['trigram', len(corpus), words_len, round(len(corpus) / words_len, 4), entropy, runtime]
+
+
+def calculate_entropy(file_path='./novel_sentence.txt'):
+    before = time.time()
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+
+        corpus = []
+        count = 0
+        for line in f:
+            if line != '\n':
+                corpus.append(line.strip())
+                count += len(line.strip())
+
+        corpus = ''.join(corpus)
+
         split_words = [x for x in jieba.cut(corpus)]  # 利用jieba分词
         words_len = len(split_words)
 
@@ -346,7 +511,7 @@ def calculate_entropy(file_path='./novel_sentence.txt'):
         logging.info("分词个数: %d" % words_len)
         logging.info("平均词长: %.4f" % round(len(corpus)/words_len, 4))
 
-        words_tf = get_tf(split_words)  # 得到词频表
+        words_tf = get_tf_1(split_words)  # 得到词频表
         # logging.info("词频表: " + tf_words)
 
         entropy = [-(uni_word[1]/words_len)*math.log(uni_word[1]/words_len, 2) for uni_word in words_tf]
@@ -357,26 +522,35 @@ def calculate_entropy(file_path='./novel_sentence.txt'):
     runtime = round(after - before, 4)
     logging.info("运行时间: %.4f s" % runtime)
 
-    return [file_path[24:-4], len(corpus), words_len, round(len(corpus)/words_len, 4),  entropy, runtime]
+    return ['unigram', len(corpus), words_len, round(len(corpus)/words_len, 4),  entropy, runtime]
 
 
 if __name__ == '__main__':
 
     filenames = preprocess_sentence()
 
-    # calculate all the data
+    # calculate all the data: unigram
+    data = []
     item = calculate_entropy(file_path='./novel_sentence.txt')
+    data.append(item)
+
+    # calculate all the data: bigram
+    item = calculate_bigram_entropy(file_path='./novel_sentence.txt')
+    data.append(item)
+
+    # calculate all the data: trigram
+    item = calculate_trigram_entropy(file_path='./novel_sentence.txt')
+    data.append(item)
 
     # calculate every single data
-    data = []
-    runtime_single = []
-    for i in range(len(filenames)):
-        item = calculate_entropy(file_path='./corpus/novel_sentence_%s.txt' % filenames[i][:-4])
-        data.append(item)
+    # data = []
+    # for i in range(len(filenames)):
+    #     item = calculate_entropy(file_path='./corpus/novel_sentence_%s.txt' % filenames[i][:-4])
+    #     data.append(item)
 
     head_name = "#"
     rows_name = [str(i + 1) for i in range(len(filenames))]
-    cols_name = ['小说名称', '语料字数', '分词个数', '平均词长', '信息熵（unigram）', '运行时长']
+    cols_name = ['分词模型', '语料字数', '分词个数', '平均词长', '信息熵（比特/词）', '运行时长（s）']
     table = print_markdown_table(head_name, rows_name, cols_name, data)
 
     entropy = [item[4] for item in data]
