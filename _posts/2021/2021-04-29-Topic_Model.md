@@ -31,8 +31,8 @@ $$
 f(x;\alpha,\beta)=\frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}
 $$
 
-
 其中：
+
 
 
 $$
@@ -41,6 +41,8 @@ $$
 \Gamma(z)&=\int_{0}^{\infty}t^{z-1}e^{-t}dt
 \end{align}
 $$
+
+
 **注：这便是所谓的 gamma 函数。**
 
 `Dirichlet` 分布的的密度函数形式跟 `beta` 分布的密度函数如出一辙：
@@ -51,12 +53,15 @@ f(x_1,x_2,...,x_k;\alpha_1,\alpha_2,...,\alpha_k)=\frac{1}{B(\alpha)}\prod_{i=1}
 $$
 
 
+
 其中
+
 
 
 $$
 B(\alpha)=\frac{\prod_{i=1}^{k}\Gamma(\alpha^i)}{\Gamma(\sum_{i=1}^{k}\alpha^i)},\sum_{}x_i=1
 $$
+
 
 
 至此，我们可以看到二项分布和多项分布很相似，`beta` 分布和 `Dirichlet` 分布很相似。
@@ -66,9 +71,11 @@ $$
 - `beta` 分布是二项式分布的共轭先验概率分布：对于非负实数 $\alpha$ 和 $\beta$ ，我们有如下关系：
 
   
+
   $$
   \mathrm{Beta}(p|\alpha,\beta)+\mathrm{Count}(m_1,m_2)=\mathrm{Beta}(p|\alpha+m_1,\beta+m_2)
   $$
+
   
 
   其中 $(m_1,m_2)$ 对应的是二项分布 $B(m_1+m_2,p)$ 的记数。针对于这种观测到的数据符合二项分布，参数的先验分布和后验分布都是 `beta` 分布的情况，就是 `Beta-Binomial` 共轭。
