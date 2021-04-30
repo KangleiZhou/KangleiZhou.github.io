@@ -186,6 +186,16 @@ def stop_words(path='./stop_words.txt'):  # 中文字符表
 张召重 | 神色 | 沮丧 | 不敢 | 再行 | 倔强 | 听 | 袁大侠 | 吩咐 | 就是 | 陈正德 | 武功 | 武林中 | 顶儿 | 尖儿 | 请教 | 阁下 | 万儿 | 张召重 | 姓张 | 名召重 | 不敢 | 请教 | 三位 | 陈正德 | 原来 | 火手 | 判官 | 袁大哥 | 马真道 | 长 | 师弟 | 袁士霄 | 点头 | 师兄 | 不及 | 咱们 | 走 | 一马当先 | 向前 | 驰去
 ```
 
+## 词云
+
+训练集操作后词云如下：
+
+![训练集词云](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-4-30/1619745233817-cloud_img.png)
+
+
+
+
+
 # 词袋模型
 
 ### 基本步骤
@@ -193,6 +203,8 @@ def stop_words(path='./stop_words.txt'):  # 中文字符表
 - 特征提取：提取数据集中每幅图像的特征点，然后提取特征描述符，形成特征数据(如：SIFT或者SURF方法)；
 - 学习词袋：把处理好的特征数据全部合并，利用聚类把特征词分为若干类，此若干类的数目由自己设定，每一类相当于一个视觉词汇；
 - 利用视觉词袋量化图像特征：每一张图像由很多视觉词汇组成，我们利用统计的词频直方图，可以表示图像属于哪一类；
+
+
 
 ### 具体实现
 
@@ -218,6 +230,8 @@ def tfidf_extractor(corpus, ngram_range=(1, 1)):
     return vectorizer, features
 ```
 
+
+
 ## 构建分类器
 
 主要构建 `Logistic` 回归模型和支持向量机模型。
@@ -236,6 +250,8 @@ def train_predict_evaluate_model(classifier,
 
     return predictions
 ```
+
+
 
 ##　实验结果
 
