@@ -351,8 +351,8 @@ def train_predict_evaluate_model(classifier,
 # 参考资料
 
 - [第十九节、基于传统图像处理的目标检测与识别(词袋模型BOW+SVM附代码)](https://www.cnblogs.com/zyly/p/9796600.html)
-
 - [我是这样一步步理解--主题模型(Topic Model)、LDA(案例代码)](https://www.jianshu.com/p/433392480c98)
+- [Topic Modeling in Python: Latent Dirichlet Allocation (LDA)](https://github.com/kapadias/mediumposts/blob/master/natural_language_processing/topic_modeling/notebooks/Introduction%20to%20Topic%20Modeling.ipynb)
 
 # 附录
 
