@@ -192,6 +192,82 @@ def stop_words(path='./stop_words.txt'):  # 中文字符表
 
 ![训练集词云](https://cdn.jsdelivr.net/gh/ZhouKanglei/jidianxia/2021-4-30/1619745233817-cloud_img.png)
 
+## 构建 LDA 模型
+
+通过 `gensim` 构建 LDA 模型：
+
+```python
+	corpus_train = [np.array(i.split(' ')) for i in norm_train_corpus]
+    corpus_test = [np.array(i.split(' ')) for i in norm_test_corpus]
+    corpus = corpus_train + corpus_test
+
+    # Create Dictionary
+    id2word = corpora.Dictionary(corpus)
+
+    # Create Corpus
+    texts = corpus
+
+    # Term Document Frequency
+    corpus = [id2word.doc2bow(text) for text in texts]
+
+    # number of topics
+    num_topics = 5
+
+    # Build LDA model
+    lda_model = models.LdaMulticore(corpus=corpus,
+                                    id2word=id2word,
+                                    num_topics=num_topics)
+
+    # Print the Keyword in the 10 topics
+    pprint(lda_model.print_topics())
+    doc_lda = lda_model[corpus]
+```
+
+
+
+将所有的集合构建为语料库，聚类出 $N_{\mathrm{topic}} = 5$ 个主题词，如下：
+
+```
+[(0,
+  '0.006*"陈家洛" + 0.003*"说道" + 0.003*"自己" + 0.003*"听" + 0.003*"他们" + 0.002*"一个" + 0.002*"…" + 0.002*"」" + 0.002*"咱们" + 0.002*"我们"'),
+ (1,
+  '0.009*"…" + 0.004*"听" + 0.004*"令狐冲" + 0.004*"甚么" + 0.003*"陈家洛" + 0.003*"「" + 0.003*"自己" + 0.003*"」" + 0.003*"说道" + 0.002*"一个"'),
+ (2,
+  '0.007*"陈家洛" + 0.004*"张召重" + 0.004*"…" + 0.003*"令狐冲" + 0.003*"听" + 0.003*"甚么" + 0.003*"说道" + 0.003*"一个" + 0.003*"自己" + 0.002*"一声"'),
+ (3,
+  '0.004*"…" + 0.003*"听" + 0.003*"陈家洛" + 0.003*"说道" + 0.003*"令狐冲" + 0.002*"派" + 0.002*"一个" + 0.002*"「" + 0.002*"霍青桐" + 0.002*"两人"'),
+ (4,
+  '0.009*"」" + 0.008*"「" + 0.005*"说道" + 0.004*"听" + 0.004*"一个" + 0.003*"陈家洛" + 0.003*"』" + 0.003*"…" + 0.003*"『" + 0.003*"甚么"')]
+```
+
+
+
+## 主题可视化
+
+通过 `pyLDA` 将上述语料库主题可视化：
+
+```python
+	# 可视化topic
+    pyLDAvis.enable_notebook()
+
+    LDAvis_data_filepath = os.path.join('./ldavis_prepared_' + str(num_topics))
+
+    # this is a bit time consuming - make the if statement True
+    # if you want to execute visualization prep yourself
+    if True:
+        LDAvis_prepared = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
+        with open(LDAvis_data_filepath, 'wb') as f:
+            pickle.dump(LDAvis_prepared, f)
+
+    # load the pre-prepared pyLDAvis data from disk
+    with open(LDAvis_data_filepath, 'rb') as f:
+        LDAvis_prepared = pickle.load(f)
+
+    pyLDAvis.save_html(LDAvis_prepared, '.ldavis_prepared_' + str(num_topics) + '.html')
+
+    print(LDAvis_prepared)
+```
+
 
 
 
@@ -519,8 +595,24 @@ def normalize(corpus):
 ## 主程序
 
 ```python
+
+from data_normalize import get_data, normalize
+from feature_extractor import bow_extractor, tfidf_extractor
+from train_predict_evaluate import train_predict_evaluate_model
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import LogisticRegression
+
+import numpy as np
+import os
+
+
+from gensim import corpora, similarities, models
+import pprint
+
+
+import pyLDAvis.gensim
+import pickle
+import pyLDAvis
 
 if __name__ == "__main__":
     train_corpus, train_labels, \
@@ -528,6 +620,52 @@ if __name__ == "__main__":
 
     norm_train_corpus = normalize(train_corpus)
     norm_test_corpus = normalize(test_corpus)
+
+    corpus_train = [np.array(i.split(' ')) for i in norm_train_corpus]
+    corpus_test = [np.array(i.split(' ')) for i in norm_test_corpus]
+    corpus = corpus_train + corpus_test
+
+    # Create Dictionary
+    id2word = corpora.Dictionary(corpus)
+
+    # Create Corpus
+    texts = corpus
+
+    # Term Document Frequency
+    corpus = [id2word.doc2bow(text) for text in texts]
+
+    # number of topics
+    num_topics = 5
+
+    # Build LDA model
+    lda_model = models.LdaMulticore(corpus=corpus,
+                                    id2word=id2word,
+                                    num_topics=num_topics)
+
+    # Print the Keyword in the 10 topics
+    pprint(lda_model.print_topics())
+    doc_lda = lda_model[corpus]
+
+    # 可视化topic
+    pyLDAvis.enable_notebook()
+
+    LDAvis_data_filepath = os.path.join('./ldavis_prepared_' + str(num_topics))
+
+    # this is a bit time consuming - make the if statement True
+    # if you want to execute visualization prep yourself
+    if True:
+        LDAvis_prepared = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
+        with open(LDAvis_data_filepath, 'wb') as f:
+            pickle.dump(LDAvis_prepared, f)
+
+    # load the pre-prepared pyLDAvis data from disk
+    with open(LDAvis_data_filepath, 'rb') as f:
+        LDAvis_prepared = pickle.load(f)
+
+    pyLDAvis.save_html(LDAvis_prepared, '.ldavis_prepared_' + str(num_topics) + '.html')
+
+    print(LDAvis_prepared)
+
 
     # 词袋模型特征
     bow_vectorizer, bow_train_features = bow_extractor(norm_train_corpus)
