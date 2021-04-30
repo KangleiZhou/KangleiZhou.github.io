@@ -110,9 +110,7 @@ $$
 
 数据库：[金庸小说文本]( https://share.weiyun.com/5zGPyJX)
 
-
-
-##　选取小说
+## 选取小说
 
 随机选取 $K = 5$ 本小说，选取结果打印如下：
 
@@ -197,7 +195,7 @@ def stop_words(path='./stop_words.txt'):  # 中文字符表
 通过 `gensim` 构建 LDA 模型：
 
 ```python
-	corpus_train = [np.array(i.split(' ')) for i in norm_train_corpus]
+    corpus_train = [np.array(i.split(' ')) for i in norm_train_corpus]
     corpus_test = [np.array(i.split(' ')) for i in norm_test_corpus]
     corpus = corpus_train + corpus_test
 
