@@ -19,6 +19,8 @@ published: true
 
 [Simple App of Microsoft HoloLens 2](https://www.bilibili.com/video/BV1xK4y1d7sW)
 
+<iframe src="//player.bilibili.com/player.html?aid=930498784&bvid=BV1xK4y1d7sW&cid=334957970&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 # C# 代码
 
 ```C#
