@@ -1,11 +1,11 @@
 ---
 layout: post
-category: HoloLens
+category: HoloLens 2
 title: 【AR/VR】HoloLens 2 demo
 tagline: by Kanglei Zhou
 author: Kanglei Zhou
 tags: 
-  - HoloLens
+  - HoloLens 2
 published: true
 ---
 
@@ -23,7 +23,7 @@ published: true
 
 # C# 代码
 
-```C#
+```c++
 using System;
 using System.Collections;
 using System.Collections.Generic;
