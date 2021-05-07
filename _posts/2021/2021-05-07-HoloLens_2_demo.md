@@ -1,11 +1,11 @@
 ---
 layout: post
-category: HoloLens 2
+category: HoloLens
 title: 【AR/VR】HoloLens 2 demo
 tagline: by Kanglei Zhou
 author: Kanglei Zhou
 tags: 
-  - HoloLens 2
+  - HoloLens
 published: true
 ---
 
