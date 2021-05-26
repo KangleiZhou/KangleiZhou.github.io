@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Dimensionality Reduction
+category: ML
 title: 【机器学习】数据降维
 tagline: by Kanglei Zhou
 tags: 
