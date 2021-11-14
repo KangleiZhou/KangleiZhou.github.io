@@ -7,8 +7,9 @@ author: Kanglei Zhou
 tags: 
   - Contrastive learning
 published: true
-
 ---
+
+> 原文🔗：[一文读懂对比学习](https://mp.weixin.qq.com/s/obXIHrMEcvB6RvehzuuOlg)
 
 何恺明大神新作[MAE](https://arxiv.org/pdf/2111.06377.pdf "Masked Autoencoders Are Scalable Vision Learners")震惊了学术圈，在阅读学习的过程中遇到了一些知识漏洞。本期，了解和学习[对比学习（Contrastive Learning）](https://ankeshanand.com/blog/2020/01/26/contrative-self-supervised-learning.html "对比自监督学习")。对比自监督学习技术是一类很有前途的方法，它通过学习编码使两个事物相似或不同的东西来构建表示。
 
