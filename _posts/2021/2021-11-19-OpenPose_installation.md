@@ -1,4 +1,4 @@
-```
+---
 layout: post
 category: DL
 title: Ubuntu 18.04 OpenPose 安装踩坑之旅
@@ -7,7 +7,7 @@ author: Kanglei Zhou
 tags: 
   - 姿态估计
     published: true
-```
+---
 
 
 
