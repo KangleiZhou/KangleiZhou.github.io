@@ -1,12 +1,12 @@
 ---
 layout: post
 category: DL
-title: OpenPose 安装踩坑之旅
+title: 【Ubuntu 18.04】OpenPose 安装踩坑之旅
 tagline: by Kanglei Zhou
 author: Kanglei Zhou
 tags: 
   - 姿态估计
-    published: true
+published: true
 ---
 
 
